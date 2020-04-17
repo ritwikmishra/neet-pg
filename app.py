@@ -68,7 +68,7 @@ def enter_query():
 		if(cc):
 			df = df[df['Candidate Cat'].str.contains(cc, case=False)]
 			q = q + " Candidate Cat: "+cc
-		q = q + " Length of results: "+len(df)
+		q = q + " Length of results: "+str(len(df))
 		cv = 5000
 		if (len(df)>cv):
 			df = df[:cv]
