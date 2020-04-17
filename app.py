@@ -68,8 +68,11 @@ def enter_query():
 		if(cc):
 			df = df[df['Candidate Cat'].str.contains(cc, case=False)]
 			q = q + " Candidate Cat: "+cc
-		if (len(df)>1000):
-			df = df[:1000]
+
+		cv = 5000
+		if (len(df)>cv):
+			df = df[:cv]
+			q = q + " only top "+str(cv)+" results are shown because above that needed more compute power"
 		print("\nDone\n")
 		return render_template('index.html',df=df, q=q)
 
