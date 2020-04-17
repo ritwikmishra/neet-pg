@@ -68,7 +68,9 @@ def enter_query():
 		if(cc):
 			df = df[df['Candidate Cat'].str.contains(cc, case=False)]
 			q = q + " Candidate Cat: "+cc
-	
+		if (len(df)>1000):
+			df = df[:1000]
+		print("\nDone\n")
 		return render_template('index.html',df=df, q=q)
 
 
